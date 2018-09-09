@@ -11,4 +11,15 @@ public class HelloController {
     public String hello(){
         return "hello";
     }
+
+    //Spring Boot 默认使用 jackson 来解析json
+    //jackson 会把对象解析为json字符串
+    @RequestMapping("/getDemo")
+    public Demo getDemo(){
+        Demo demo = new Demo();
+        demo.setId(1);
+        demo.setName("Guo");
+        return demo;
+
+    }
 }
