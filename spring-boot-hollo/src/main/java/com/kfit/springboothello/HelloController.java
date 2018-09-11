@@ -1,4 +1,5 @@
 package com.kfit.springboothello;
+import java.util.Date;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,7 @@ public class HelloController {
         Demo demo = new Demo();
         demo.setId(1);
         demo.setName("Guo");
+        demo.setCreateDate(new Date());
         return demo;
 
     }
