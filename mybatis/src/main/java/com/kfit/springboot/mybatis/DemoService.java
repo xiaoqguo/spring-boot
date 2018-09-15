@@ -14,4 +14,10 @@ public class DemoService {
     public List<Demo> likeName(String name){
         return demoMapper.likeName(name);
     }
+
+    public void save(Demo demo){
+        Demo nd = demoMapper.save(demo);
+        System.out.println(nd);
+
+    }
 }
