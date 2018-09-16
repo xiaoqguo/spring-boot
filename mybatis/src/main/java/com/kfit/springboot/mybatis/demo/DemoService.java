@@ -1,4 +1,4 @@
-package com.kfit.springboot.mybatis.book;
+package com.kfit.springboot.mybatis.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

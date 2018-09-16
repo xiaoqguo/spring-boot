@@ -1,4 +1,4 @@
-package com.kfit.springboot.mybatis.book;
+package com.kfit.springboot.mybatis.demo;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
