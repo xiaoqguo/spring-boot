@@ -16,8 +16,8 @@ public interface DemoMapper {
     @Select("select name from test2 where id=#{id}")
     public String getNameById(long id);
 
-    @Select("select * from test2")
-    public List<Demo> selectAll();
+    @Select("select * from test2 order by ${orderField} ${ascOrDesc}")
+    public List<Demo> selectAll(@Param("orderField")String orderField,@Param("ascOrDesc")String ascOrDesc);
 
     @Insert("insert into test2(name,createDate) values(#{name},#{createDate}) ")
     @Options(useGeneratedKeys=true,keyProperty = "id",keyColumn = "id")

@@ -32,8 +32,18 @@ public class DemoService {
         return demoMapper.delete(id);
     }
 
-    public List<Demo> selectAll(){
-        return demoMapper.selectAll();
+    public List<Demo> selectAll(String orderField,String orderType){
+        String ascDesc = "desc";
+        if(orderType !=null && !orderType.equals("")){
+            ascDesc = orderType;
+        }
+        String field = "createDate";
+        if (orderField != null && !orderField.equals("")) {
+            field = orderField;
+        }
+        System.out.println(field);
+        System.out.println(ascDesc);
+        return demoMapper.selectAll(field,ascDesc);
     }
 
     public Demo selectById(int id){
