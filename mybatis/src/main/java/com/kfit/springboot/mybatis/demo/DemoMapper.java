@@ -17,6 +17,9 @@ public interface DemoMapper {
     public String getNameById(long id);
 
     @Select("select * from test2 order by ${orderField} ${ascOrDesc}")
+    @Results({
+        @Result(property="testName",column="test_name")
+    })
     public List<Demo> selectAll(@Param("orderField")String orderField,@Param("ascOrDesc")String ascOrDesc);
 
     @Insert("insert into test2(name,createDate) values(#{name},#{createDate}) ")

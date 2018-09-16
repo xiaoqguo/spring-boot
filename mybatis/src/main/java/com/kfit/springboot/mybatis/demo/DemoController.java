@@ -37,8 +37,16 @@ public class DemoController {
     }
 
     @RequestMapping(path="/selectAll",method = RequestMethod.GET)
-    public List<Demo> selectAll(int page,int size,String orderField,String orderType){
-        PageHelper.startPage(page,size);
+    public List<Demo> selectAll(Integer page,Integer size,String orderField,String orderType){
+        int p=1;
+        int s=20;
+        if(page!=null){
+            p=page;
+        }
+        if(size!=null){
+            s=size;
+        }
+        PageHelper.startPage(p,s);
         return demoService.selectAll(orderField,orderType);
     }
 
