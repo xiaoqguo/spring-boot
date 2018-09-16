@@ -1,5 +1,6 @@
 package com.kfit.springboot.mybatis.demo;
 
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,7 +37,8 @@ public class DemoController {
     }
 
     @RequestMapping(path="/selectAll",method = RequestMethod.GET)
-    public List<Demo> selectAll(){
+    public List<Demo> selectAll(int page,int size){
+        PageHelper.startPage(page,size);
         return demoService.selectAll();
     }
 
