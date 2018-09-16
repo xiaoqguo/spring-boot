@@ -1,4 +1,4 @@
-package com.kfit.springboot.mybatis;
+package com.kfit.springboot.mybatis.book;
 
 import java.util.Date;
 

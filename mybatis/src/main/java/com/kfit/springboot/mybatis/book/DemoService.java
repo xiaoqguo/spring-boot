@@ -1,4 +1,4 @@
-package com.kfit.springboot.mybatis;
+package com.kfit.springboot.mybatis.book;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +17,7 @@ public class DemoService {
     }
 
     public Demo save(Demo demo){
+        demo.setCreateDate(new Date());
         demoMapper.save(demo);
         return demoMapper.getById(demo.getId());
 

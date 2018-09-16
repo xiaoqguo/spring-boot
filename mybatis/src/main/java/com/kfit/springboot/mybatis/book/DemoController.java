@@ -1,4 +1,4 @@
-package com.kfit.springboot.mybatis;
+package com.kfit.springboot.mybatis.book;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping("/demo")
 public class DemoController {
 
     @Autowired
@@ -22,10 +23,5 @@ public class DemoController {
     @RequestMapping(path="/save",method = RequestMethod.POST)
     public Demo addDemo(Demo demo){
         return demoService.save(demo);
-    }
-
-    @RequestMapping("/date")
-    public Date getDate(){
-        return new Date();
     }
 }
