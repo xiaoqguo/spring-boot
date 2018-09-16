@@ -3,6 +3,7 @@ package com.kfit.springboot.mybatis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -15,9 +16,9 @@ public class DemoService {
         return demoMapper.likeName(name);
     }
 
-    public void save(Demo demo){
-        Demo nd = demoMapper.save(demo);
-        System.out.println(nd);
+    public Demo save(Demo demo){
+        demoMapper.save(demo);
+        return demoMapper.getById(demo.getId());
 
     }
 }

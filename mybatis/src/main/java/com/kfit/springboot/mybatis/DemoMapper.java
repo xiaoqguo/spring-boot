@@ -1,6 +1,7 @@
 package com.kfit.springboot.mybatis;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -17,5 +18,6 @@ public interface DemoMapper {
     public String getNameById(long id);
 
     @Insert("insert into test2(name) values(#{name}) ")
-    public Demo save(Demo demo);
+    @Options(useGeneratedKeys=true,keyProperty = "id",keyColumn = "id")
+    public void save(Demo demo);
 }
