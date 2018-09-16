@@ -20,6 +20,23 @@ public class DemoService {
         demo.setCreateDate(new Date());
         demoMapper.save(demo);
         return demoMapper.getById(demo.getId());
+    }
 
+    public Demo update(Demo demo){
+        System.out.println("update demo in service");
+        demoMapper.update(demo);
+        return demoMapper.getById(demo.getId());
+    }
+
+    public int delete(int id){
+        return demoMapper.delete(id);
+    }
+
+    public List<Demo> selectAll(){
+        return demoMapper.selectAll();
+    }
+
+    public Demo selectById(int id){
+        return demoMapper.getById(id);
     }
 }

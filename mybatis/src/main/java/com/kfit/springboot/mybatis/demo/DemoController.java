@@ -23,4 +23,25 @@ public class DemoController {
     public Demo addDemo(Demo demo){
         return demoService.save(demo);
     }
+
+    @RequestMapping(path="/update",method = RequestMethod.PUT)
+    public Demo updateDemo(Demo demo){
+        System.out.println("update demo in controller");
+        return demoService.update(demo);
+    }
+
+    @RequestMapping(path="/delete",method = RequestMethod.DELETE)
+    public int deleteDemo(int id){
+        return demoService.delete(id);
+    }
+
+    @RequestMapping(path="/selectAll",method = RequestMethod.GET)
+    public List<Demo> selectAll(){
+        return demoService.selectAll();
+    }
+
+    @RequestMapping(path="/selectById",method = RequestMethod.GET)
+    public Demo selectById(int id){
+        return demoService.selectById(id);
+    }
 }

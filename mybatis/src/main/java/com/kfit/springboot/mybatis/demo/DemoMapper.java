@@ -1,8 +1,7 @@
 package com.kfit.springboot.mybatis.demo;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -17,7 +16,18 @@ public interface DemoMapper {
     @Select("select name from test2 where id=#{id}")
     public String getNameById(long id);
 
+    @Select("select * from test2")
+    public List<Demo> selectAll();
+
     @Insert("insert into test2(name,createDate) values(#{name},#{createDate}) ")
     @Options(useGeneratedKeys=true,keyProperty = "id",keyColumn = "id")
-    public void save(Demo demo);
+    public int save(Demo demo);
+
+    @Update("update test2 set name=#{name} where id=#{id}")
+    public int update(Demo demo);
+
+    @Delete("delete from test2 where id=#{id}")
+    public int delete(int id);
+
+
 }
