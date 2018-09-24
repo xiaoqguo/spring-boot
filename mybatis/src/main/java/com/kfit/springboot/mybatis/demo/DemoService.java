@@ -49,4 +49,8 @@ public class DemoService {
     public Demo selectById(int id){
         return demoMapper.getById(id);
     }
+
+    public List<Demo> scriptQuery(Demo demo){
+        return demoMapper.scriptQuery(demo);
+    }
 }

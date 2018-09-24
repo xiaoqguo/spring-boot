@@ -10,6 +10,9 @@ public interface DemoMapper {
     @Select("select * from test2 where name=#{name}")
     public List<Demo> likeName(String name);
 
+    @Results({
+            @Result(property="testName",column="test_name")
+    })
     @Select("select * from test2 where id=#{id}")
     public Demo getById(long id);
 
@@ -26,11 +29,20 @@ public interface DemoMapper {
     @Options(useGeneratedKeys=true,keyProperty = "id",keyColumn = "id")
     public int save(Demo demo);
 
-    @Update("update test2 set name=#{name} where id=#{id}")
+    @Update("update test2 set name=#{name},test_name=#{testName} where id=#{id}")
     public int update(Demo demo);
 
     @Delete("delete from test2 where id=#{id}")
     public int delete(int id);
 
 
+    @Select("<script>select * from test2 where "
+            + "1=1"
+            +"<if test='name !=null'> and name=#{name}</if>"
+            +"<if test='testName !=null'> and test_name=#{testName}</if>"
+            +"</script>")
+    @Results({
+            @Result(property="testName",column="test_name")
+    })
+    public List<Demo> scriptQuery(Demo demo);
 }

@@ -54,4 +54,9 @@ public class DemoController {
     public Demo selectById(int id){
         return demoService.selectById(id);
     }
+
+    @RequestMapping(path="/scriptQuery",method = RequestMethod.GET)
+    public List<Demo> query1(Demo demo){
+        return demoService.scriptQuery(demo);
+    }
 }
