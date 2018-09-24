@@ -1,7 +1,6 @@
 package com.kfit.springboot.mybatis.demo;
 
 import org.apache.ibatis.annotations.*;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -45,4 +44,17 @@ public interface DemoMapper {
             @Result(property="testName",column="test_name")
     })
     public List<Demo> scriptQuery(Demo demo);
+
+    @SelectProvider(type=DemoSQLProvider.class,method="providreQuery1")
+    public List<Demo> providerQuery1(Demo demo);
+
+    @SelectProvider(type=DemoSQLProvider.class,method = "providerQuery2")
+    public List<Demo> providerQuery2(Demo demo);
+
+    @InsertProvider(type=DemoSQLProvider.class,method="insert")
+    @Options(useGeneratedKeys=true,keyProperty = "id",keyColumn = "id")
+    public int insert(Demo demo);
+
+    @UpdateProvider(type=DemoSQLProvider.class,method="update")
+    public int edit(Demo demo);
 }

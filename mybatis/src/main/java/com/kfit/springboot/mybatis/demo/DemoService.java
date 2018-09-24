@@ -53,4 +53,23 @@ public class DemoService {
     public List<Demo> scriptQuery(Demo demo){
         return demoMapper.scriptQuery(demo);
     }
+
+    public List<Demo> providerQuery1(Demo demo){
+        return demoMapper.providerQuery1(demo);
+    }
+
+    public List<Demo> providerQuery2(Demo demo){
+        return demoMapper.providerQuery2(demo);
+    }
+
+    public Demo insert(Demo demo){
+        demo.setCreateDate(new Date());
+        demoMapper.insert(demo);
+        return demoMapper.getById(demo.getId());
+    }
+
+    public Demo edit(Demo demo){
+        demoMapper.edit(demo);
+        return demoMapper.getById(demo.getId());
+    }
 }

@@ -56,7 +56,27 @@ public class DemoController {
     }
 
     @RequestMapping(path="/scriptQuery",method = RequestMethod.GET)
-    public List<Demo> query1(Demo demo){
+    public List<Demo> scriptQuery(Demo demo){
         return demoService.scriptQuery(demo);
+    }
+
+    @RequestMapping(path="/providerQuery1",method=RequestMethod.GET)
+    public List<Demo> providerQuery1(Demo demo){
+        return demoService.providerQuery1(demo);
+    }
+
+    @RequestMapping(path="/providerQuery2",method=RequestMethod.GET)
+    public List<Demo> providerQuery2(Demo demo){
+        return demoService.providerQuery2(demo);
+    }
+
+    @RequestMapping(path="/insert",method=RequestMethod.GET)
+    public Demo insert(Demo demo){
+        return demoService.insert(demo);
+    }
+
+    @RequestMapping(path="/edit",method=RequestMethod.GET)
+    public Demo edit(Demo demo){
+        return demoService.edit(demo);
     }
 }
